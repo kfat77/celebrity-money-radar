@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>榜单 — Whale Watch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAFA;
+  --ink:#0a0a0a;
+  --ink-2:#3a3a3a;
+  --ink-3:#6e6e6e;
+  --ink-4:#a8a8a8;
+  --rule:#e6e6e6;
+  --rule-2:#f0f0f0;
+  --blue:#0057FF;
+  --c-value:#0057FF;
+  --c-macro:#C2410C;
+  --c-contrarian:#BE123C;
+  --c-congress:#0D6EFD;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:var(--bg);color:var(--ink);overflow-x:hidden;}
+body{
+  font-family:'Syne','Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-feature-settings:"kern" on;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:'Fira Code',ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums;}
+
+/* ── NAV BAR ── */
+.nav-bar{
+  max-width:1600px;margin:0 auto;
+  padding:20px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--rule);
+}
+.nav-logo{
+  font-weight:800;font-size:20px;letter-spacing:-.02em;color:var(--ink);
+  text-decoration:none;
+}
+.nav-links{display:flex;gap:8px;}
+.nav-btn{
+  padding:8px 18px;border-radius:4px;font-size:13px;font-weight:600;
+  text-decoration:none;transition:all .15s;
+  font-family:'Fira Code','Noto Sans SC',monospace;
+  cursor:pointer;border:none;
+}
+.nav-btn-outline{
+  background:transparent;color:var(--ink-3);border:1px solid var(--rule);
+}
+.nav-btn-outline:hover{color:var(--ink);border-color:var(--ink-3);}
+.nav-btn-fill{
+  background:var(--blue);color:#fff;border:1px solid var(--blue);
+}
+.nav-btn-fill:hover{opacity:.9;}
+
+/* ── PAGE HEADER ── */
+.page-hd{
+  max-width:1600px;margin:0 auto;
+  padding:40px 32px 32px;
+}
+.page-hd-title{
+  font-weight:800;font-size:36px;letter-spacing:-.03em;line-height:1.2;margin-bottom:8px;
+}
+.page-hd-sub{
+  font-size:15px;color:var(--ink-3);line-height:1.6;
+}
+.page-hd-sub a{color:var(--blue);text-decoration:none;}
+.page-hd-sub a:hover{text-decoration:underline;}
+
+/* ── SECTION HEADINGS ── */
+.sec{margin:0 auto 64px;}
+.sec-head{
+  padding:0 0 16px;border-bottom:2px solid var(--ink);margin-bottom:20px;
+}
+.sec-head .sec-title{
+  font-weight:800;font-size:26px;letter-spacing:-.02em;line-height:1.2;margin-bottom:4px;
+}
+.sec-head .sec-sub{font-size:13px;color:var(--ink-3);line-height:1.6;}
+
+/* ── CONTENT WRAPPER ── */
+.content-wrap{max-width:1600px;margin:0 auto;padding:0 32px;}
+
+/* ── LEADERBOARD TABLE ── */
+.lb-table-wrap{overflow-x:auto;}
+.lb-table{
+  width:100%;border-collapse:collapse;
+  font-family:'Fira Code','Noto Sans SC',monospace;font-size:13px;
+}
+.lb-table thead th{
+  text-align:left;padding:10px 10px;
+  font-weight:500;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:.08em;
+  border-bottom:2px solid var(--rule);font-size:11px;
+}
+.lb-table td{
+  padding:10px 10px;border-bottom:1px solid var(--rule-2);
+  vertical-align:middle;
+}
+.lb-table tbody tr{transition:background .12s;}
+.lb-table tbody tr:hover{background:#fafaf7;}
+.lb-rank{font-weight:700;font-size:15px;text-align:center;width:44px;}
+.lb-rank.top3{font-size:18px;color:var(--c-value);}
+.lb-tk{font-weight:700;font-size:14px;font-family:'Fira Code',monospace;}
+.lb-name{font-size:13px;color:var(--ink-2);max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lb-count{text-align:center;width:80px;font-size:16px;font-weight:700;color:var(--c-value);}
+.lb-owners{font-size:11px;line-height:1.6;max-width:400px;}
+.lb-badge{
+  display:inline-block;padding:1px 6px;margin:1px 2px;
+  border-radius:2px;font-size:10px;font-weight:500;white-space:nowrap;
+}
+
+/* ── PERF TABLE ── */
+.perf-tabs{display:flex;gap:0;margin-bottom:20px;border-bottom:1px solid var(--rule);}
+.perf-tab{
+  padding:12px 24px;cursor:pointer;font-family:'Fira Code',monospace;
+  font-size:12px;font-weight:500;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:.08em;
+  border:none;background:none;
+  border-bottom:2px solid transparent;
+  margin-bottom:-1px;transition:all .15s;
+}
+.perf-tab:hover{color:var(--ink);}
+.perf-tab.active{color:var(--blue);border-bottom-color:var(--blue);}
+.perf-tab .badge{
+  display:inline-block;margin-left:6px;padding:1px 6px;
+  font-size:10px;border-radius:2px;vertical-align:middle;
+}
+.perf-table-wrap{overflow-x:auto;}
+.perf-table{
+  width:100%;border-collapse:collapse;
+  font-family:'Fira Code','Noto Sans SC',monospace;font-size:13px;
+}
+.perf-table thead th{
+  text-align:left;padding:10px 12px;
+  font-weight:500;color:var(--ink-3);
+  text-transform:uppercase;letter-spacing:.08em;
+  border-bottom:2px solid var(--rule);font-size:11px;
+}
+.perf-table thead th.right{text-align:right;}
+.perf-table thead th.center{text-align:center;}
+.perf-table tbody td{
+  padding:11px 12px;border-bottom:1px solid var(--rule-2);
+  vertical-align:middle;
+}
+.perf-table tbody td.right{text-align:right;}
+.perf-table tbody td.center{text-align:center;}
+.perf-table tbody tr{transition:background .12s;}
+.perf-table tbody tr:hover{background:#fafaf7;}
+.perf-table tbody tr.tracked{background:#f0f4ff;}
+.perf-table tbody tr.tracked:hover{background:#e8edf8;}
+.perf-rank{font-weight:700;font-size:16px;color:var(--ink);}
+.perf-rank.gold{color:#C2410C;}
+.perf-rank.silver{color:var(--ink-3);}
+.perf-rank.bronze{color:#92400E;}
+.perf-name{font-weight:700;font-size:14px;color:var(--ink);}
+.perf-name .cgr{font-size:13px;font-weight:500;}
+.perf-fund{font-size:11px;color:var(--ink-3);font-weight:400;}
+.perf-cat{
+  display:inline-block;padding:2px 8px;border-radius:3px;
+  font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;
+}
+.perf-val{font-weight:700;font-size:18px;font-family:'Fira Code',monospace;}
+.perf-val.good{color:#059669;}
+.perf-val.great{color:#0D6EFD;}
+.perf-val.ok{color:var(--ink-2);}
+.perf-bar{
+  display:block;height:4px;border-radius:2px;margin-top:2px;
+  background:var(--blue);opacity:.25;
+}
+.perf-note{font-size:11px;color:var(--ink-3);line-height:1.4;max-width:260px;}
+.perf-tag{
+  display:inline-block;padding:2px 8px;border-radius:3px;
+  font-size:11px;font-weight:600;border:1px solid;
+}
+.perf-tag.tracked{background:#0057FF15;color:#0057FF;}
+.perf-tag.new{background:#05966915;color:#059669;}
+
+.perf-legend{
+  display:flex;gap:20px;margin-top:16px;
+  font-size:12px;color:var(--ink-3);
+  align-items:center;
+}
+.perf-legend span{display:flex;align-items:center;gap:4px;}
+.perf-legend .dot{width:8px;height:8px;border-radius:2px;display:inline-block;}
+.perf-source{margin-top:16px;font-size:11px;color:var(--ink-4);line-height:1.8;}
+.perf-source a{color:var(--blue);text-decoration:none;}
+.perf-source a:hover{text-decoration:underline;}
+
+/* ── FOOTER ── */
+.foot-section{max-width:1600px;margin:0 auto;padding:32px 32px 48px;}
+.foot-rule{height:2px;background:var(--ink);margin-bottom:24px;}
+.foot-text{font-size:12px;color:var(--ink-3);line-height:2;}
+.foot-text a{color:var(--ink);text-decoration:none;}
+.foot-text a:hover{text-decoration:underline;}
+
+@media (max-width:680px){
+  .nav-bar{padding:16px 18px;}
+  .nav-logo{font-size:17px;}
+  .nav-btn{padding:6px 12px;font-size:12px;}
+  .page-hd{padding:28px 18px 22px;}
+  .page-hd-title{font-size:26px;}
+  .content-wrap{padding:0 18px;}
+  .lb-table{font-size:11px;}
+  .lb-tk{font-size:13px;}
+  .perf-table{font-size:11px;}
+  .perf-val{font-size:15px;}
+  .perf-tab{padding:10px 14px;font-size:11px;}
+  .perf-note{max-width:140px;font-size:10px;}
+  .foot-section{padding:24px 18px 32px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav-bar">
+  <a href="./index.html" class="nav-logo">The Whale Watch</a>
+  <div class="nav-links">
+    <a href="./curves.html" class="nav-btn nav-btn-outline" style="background:var(--green);border-color:var(--green);color:#fff;">曲线</a>
+    <a href="./index.html" class="nav-btn nav-btn-outline">← 返回首页</a>
+  </div>
+</nav>
+
+<div class="page-hd">
+  <div class="page-hd-title">排行榜</div>
+  <div class="page-hd-sub">
+    持仓共识排行 &amp; 投资者绩效排名。数据来源：<a href="https://www.sec.gov/edgar" target="_blank">SEC 13F</a>、<a href="https://www.capitoltrades.com/" target="_blank">Capitol Trades</a>、<a href="https://congresstierlist.com/guides/best-stock-traders-in-congress/" target="_blank">Congress Tier List</a>。
+  </div>
+</div>
+
+<!-- 持仓共识排行榜 -->
+<div class="content-wrap">
+<div class="sec" id="lbSec">
+  <div class="sec-head">
+    <div class="sec-title">持仓共识排行榜 <span style="font-size:14px;color:var(--ink-3);font-weight:400;">TOP 15</span></div>
+    <div class="sec-sub">被越多追踪对象持有的股票，排名越靠前。仅统计被至少2位追踪者持有的股票。</div>
+  </div>
+  <div class="lb-table-wrap">
+    <table class="lb-table">
+      <thead><tr>
+        <th style="width:44px;text-align:center;">排名</th>
+        <th>代码</th>
+        <th>公司名称</th>
+        <th style="width:80px;text-align:center;">持有人数</th>
+        <th>持有者</th>
+      </tr></thead>
+      <tbody id="lbBody"><tr><td colspan="5" style="text-align:center;padding:32px;color:var(--ink-3);">加载中…</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 投资者绩效排名 -->
+<div class="sec" id="perfSec">
+  <div class="sec-head">
+    <div class="sec-title">投资者绩效排名 <span style="font-size:14px;color:var(--ink-3);font-weight:400;">TOP 15</span></div>
+    <div class="sec-sub">
+      基于公开数据的年化回报率与胜率（交易跑赢标普500的百分比）估算。国会交易者数据来源：<a href="https://congresstierlist.com/guides/best-stock-traders-in-congress/" target="_blank">Congress Tier List</a>（15,630笔交易回溯）、<a href="https://www.capitoltrades.com/" target="_blank">CapitolTrades.com</a>。
+    </div>
+  </div>
+  <div class="perf-tabs" id="perfTabs">
+    <button class="perf-tab active" data-tab="return">年化回报率排名</button>
+    <button class="perf-tab" data-tab="win">胜率排名</button>
+    <button class="perf-tab" data-tab="composite">综合评分<span class="badge" style="background:#0057FF15;color:#0057FF;">推荐</span></button>
+  </div>
+  <div class="perf-table-wrap">
+    <table class="perf-table">
+      <thead><tr>
+        <th style="width:44px;" class="center">排名</th>
+        <th>投资者</th>
+        <th>风格</th>
+        <th class="right">年化回报率</th>
+        <th class="right">胜率</th>
+        <th class="center">追踪年数</th>
+        <th>优势/劣势</th>
+        <th>状态</th>
+      </tr></thead>
+      <tbody id="perfBody"><tr><td colspan="8" style="text-align:center;padding:32px;color:var(--ink-3);">加载中…</td></tr></tbody>
+    </table>
+  </div>
+  <div class="perf-legend">
+    <span><span class="dot" style="background:#0057FF15;"></span> 已在追踪</span>
+    <span><span class="dot" style="background:#05966915;"></span> 新增追踪（Capitol Trades精选）</span>
+  </div>
+  <div class="perf-source">
+    <strong>⚠ 免责声明：</strong>所有估算仅供参考，不构成投资建议。过往业绩不代表未来表现。
+  </div>
+</div>
+</div>
+
+<footer class="foot-section">
+  <div class="foot-rule"></div>
+  <div class="foot-text">
+    数据来源 <span style="color:var(--ink-4);margin:0 8px">/</span> <a href="https://www.sec.gov/edgar" target="_blank">SEC EDGAR 13F文件</a> <span style="color:var(--ink-4);margin:0 8px">/</span> <a href="https://www.capitoltrades.com/" target="_blank">Capitol Trades (STOCK Act)</a> <br>
+    Whale Watch <span style="color:var(--ink-4);margin:0 8px">/</span> 不构成投资建议
+  </div>
+</footer>
+
+<script>
+let DATA = null;
+let PERF_DATA = null;
+let perfActiveTab = 'return';
+
+const STYLE_BADGE = {value:'#0057FF', macro:'#C2410C', contrarian:'#BE123C', congress:'#0D6EFD'};
+function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+// ── Leaderboard ──
+function renderLeaderboard(){
+  const tickerMap={};
+  DATA.investors.forEach(inv=>{
+    (inv.holdings||[]).forEach(h=>{
+      const tk=(h.ticker||'').toUpperCase();
+      if(!tk)return;
+      if(!tickerMap[tk])tickerMap[tk]={name:h.name||tk,owners:[]};
+      tickerMap[tk].owners.push({name:inv.name,nameZh:inv.name_zh||'',style:inv.style||''});
+    });
+  });
+  const ranked=Object.entries(tickerMap)
+    .filter(([,v])=>v.owners.length>=2)
+    .sort((a,b)=>b[1].owners.length-a[1].owners.length||a[0].localeCompare(b[0]));
+
+  const tbody=document.getElementById('lbBody');
+  if(!ranked.length){tbody.innerHTML='<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--ink-3);">暂无数据</td></tr>';return;}
+  tbody.innerHTML=ranked.slice(0,15).map(([tk,v],i)=>`
+    <tr>
+      <td class="lb-rank${i<3?' top3':''}">${String(i+1).padStart(2,'0')}</td>
+      <td class="lb-tk">${escapeHtml(tk)}</td>
+      <td class="lb-name" title="${escapeHtml(v.name)}">${escapeHtml(v.name)}</td>
+      <td class="lb-count">${v.owners.length}</td>
+      <td class="lb-owners">${v.owners.map(o=>`<span class="lb-badge" style="background:${STYLE_BADGE[o.style]||'#888'}15;color:${STYLE_BADGE[o.style]||'#555'}">${escapeHtml(o.nameZh||o.name.split(' ').pop())}</span>`).join('')}</td>
+    </tr>`).join('');
+}
+
+// ── Performance ──
+function renderPerformance(data,tab){
+  const tabKey=tab==='return'?'by_annualized_return':(tab==='win'?'by_win_rate':'by_composite');
+  const list=data.rankings[tabKey]||[];
+  const styleLabel={value:'价值投资',macro:'宏观对冲',contrarian:'逆向投资',congress:'国会交易'};
+  const styleHex={value:'#0057FF',macro:'#C2410C',contrarian:'#BE123C',congress:'#0D6EFD'};
+  const isReturn=tab==='return';
+  const isComp=tab==='composite';
+  const mainValKey=isComp?'composite_score':(isReturn?'annualized_return':'win_rate');
+
+  const tbody=document.getElementById('perfBody');
+  if(!list.length){tbody.innerHTML='<tr><td colspan="8" style="text-align:center;padding:32px;color:var(--ink-3);">暂无数据</td></tr>';return;}
+
+  tbody.innerHTML=list.slice(0,15).map((inv,i)=>{
+    const existingIds=DATA.investors.map(inv=>inv.id);
+    const isTracked=existingIds.includes(inv.id);
+    const isNew=!isTracked&&inv.category==='congress';
+    const rowClass=isTracked?'tracked':'';
+
+    let rankClass='';
+    if(i===0)rankClass='gold';
+    else if(i===1)rankClass='silver';
+    else if(i===2)rankClass='bronze';
+
+    const val=inv[mainValKey];
+    let valClass='ok';
+    if(isComp){if(val>=18)valClass='great';else if(val>=12)valClass='good';}
+    else if(isReturn){if(val>=20)valClass='great';else if(val>=14)valClass='good';}
+    else{if(val>=65)valClass='great';else if(val>=50)valClass='good';}
+
+    const maxVal=Math.max(...list.map(x=>x[mainValKey]||0),1);
+    const barW=Math.max(3,Math.round((val/maxVal)*100));
+
+    let statusTag='';
+    if(isNew)statusTag='<span class="perf-tag new">新增</span>';
+    else if(isTracked)statusTag='<span class="perf-tag tracked">追踪中</span>';
+
+    return `<tr class="${rowClass}">
+      <td class="center"><span class="perf-rank ${rankClass}">${String(i+1).padStart(2,'0')}</span></td>
+      <td>
+        <div class="perf-name">${inv.name_zh||''} <span class="cgr">${inv.name}</span></div>
+        <div class="perf-fund">${inv.fund}</div>
+      </td>
+      <td><span class="perf-cat" style="background:${styleHex[inv.category]||'#888'}15;color:${styleHex[inv.category]||'#555'}">${styleLabel[inv.category]||inv.category}</span></td>
+      <td class="right">
+        <span class="perf-val ${isReturn||isComp?valClass:''}">${isReturn?inv.annualized_return.toFixed(1)+'%':(isComp?val.toFixed(1):'')}</span>
+        ${isReturn||isComp?`<span class="perf-bar" style="width:${barW}px;"></span>`:''}
+      </td>
+      <td class="right">
+        <span class="perf-val ${!isReturn&&!isComp?valClass:''}">${inv.win_rate}%</span>
+        ${!isReturn&&!isComp?`<span class="perf-bar" style="width:${Math.round(inv.win_rate*1.2)}px;"></span>`:''}
+      </td>
+      <td class="center" style="font-family:'Fira Code',monospace;font-size:13px;color:var(--ink-2);">${inv.track_record_years}年</td>
+      <td class="perf-note"><strong style="color:#059669;font-weight:500;">+</strong> ${inv.key_strength||''}<br><strong style="color:#BE123C;font-weight:500;">-</strong> ${inv.key_weakness||''}</td>
+      <td>${statusTag}</td>
+    </tr>`;
+  }).join('');
+}
+
+async function loadPerformance(){
+  try{
+    const r=await fetch('./data/performance.json?_='+Date.now());
+    PERF_DATA=await r.json();
+    renderPerformance(PERF_DATA,perfActiveTab);
+  }catch(e){
+    document.getElementById('perfBody').innerHTML='<tr><td colspan="8" style="text-align:center;padding:32px;color:var(--ink-3);">绩效数据不可用</td></tr>';
+  }
+}
+
+document.getElementById('perfTabs').addEventListener('click',e=>{
+  const tab=e.target.closest('.perf-tab');
+  if(!tab)return;
+  document.querySelectorAll('.perf-tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  perfActiveTab=tab.dataset.tab;
+  if(PERF_DATA)renderPerformance(PERF_DATA,perfActiveTab);
+});
+
+// ── Bootstrap ──
+async function load(){
+  try{
+    const r=await fetch('./data/investors.json?_='+Date.now());
+    DATA=await r.json();
+  }catch(e){
+    document.getElementById('lbBody').innerHTML='<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--ink-3);">数据不可用</td></tr>';
+    document.getElementById('perfBody').innerHTML='<tr><td colspan="8" style="text-align:center;padding:32px;color:var(--ink-3);">数据不可用</td></tr>';
+    return;
+  }
+  renderLeaderboard();
+  loadPerformance();
+}
+
+load();
+</script>
+</body>
+</html>

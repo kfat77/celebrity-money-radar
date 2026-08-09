@@ -37,6 +37,7 @@ import requests
 ROOT = Path(__file__).resolve().parents[1]
 INV_PATH = ROOT / "data" / "investors.json"
 CACHE_PATH = ROOT / "data" / "cusip_cache.json"
+HISTORY_DIR = ROOT / "data" / "history"
 
 UA = os.environ.get("EDGAR_USER_AGENT") or "Whale Watch dev@example.com"
 OPENFIGI_KEY = os.environ.get("OPENFIGI_API_KEY", "").strip()
@@ -283,6 +284,230 @@ def resolve_tickers(holdings: list[dict], cache: dict) -> list[dict]:
     return holdings
 
 
+# ───────────── history snapshot ─────────────
+
+def get_quarter(date_str: str) -> str:
+    """Convert a date string like '2026-03-31' to quarter label '2026-Q1'."""
+    try:
+        d = datetime.strptime(date_str[:10], "%Y-%m-%d")
+        q = (d.month - 1) // 3 + 1
+        return f"{d.year}-Q{q}"
+    except (ValueError, IndexError):
+        return "unknown"
+
+
+def save_snapshot(inv_data: dict) -> str | None:
+    """Archive current investors.json as a historical snapshot in data/history/.
+    Returns the snapshot filename (without .json) or None if nothing to save."""
+    investors = inv_data.get("investors", [])
+    if not investors:
+        return None
+
+    # Use the earliest period_of_report as the snapshot quarter
+    periods = [inv.get("period_of_report", "") for inv in investors if inv.get("period_of_report")]
+    if not periods:
+        return None
+    quarter = get_quarter(min(periods))
+
+    # Build a lightweight snapshot: only holdings data per investor
+    snapshot = {
+        "snapshot_quarter": quarter,
+        "last_updated": inv_data.get("last_updated", ""),
+        "investors": [],
+    }
+    for inv in investors:
+        entry = {
+            "id": inv["id"],
+            "name": inv["name"],
+            "fund": inv["fund"],
+            "style": inv.get("style", ""),
+            "period_of_report": inv.get("period_of_report", ""),
+            "filing_date": inv.get("filing_date", ""),
+            "total_value_usd": inv.get("total_value_usd", 0),
+            "holdings_count": inv.get("holdings_count", 0),
+            "holdings": [],
+        }
+        for h in inv.get("holdings", []):
+            entry["holdings"].append({
+                "cusip": h.get("cusip", ""),
+                "name": h.get("name", ""),
+                "ticker": h.get("ticker", ""),
+                "value_usd": h.get("value_usd", 0),
+                "shares": h.get("shares", 0),
+                "weight": h.get("weight", 0),
+            })
+        snapshot["investors"].append(entry)
+
+    HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+    snapshot_path = HISTORY_DIR / f"{quarter}.json"
+
+    # Don't overwrite if snapshot already exists for this quarter
+    if snapshot_path.exists():
+        print(f"    snapshot {quarter}.json already exists — skipping archive")
+        return quarter
+
+    snapshot_path.write_text(
+        json.dumps(snapshot, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(f"    archived snapshot → data/history/{quarter}.json")
+    return quarter
+
+
+def find_previous_snapshot() -> dict | None:
+    """Find the most recent historical snapshot (different from current quarter)."""
+    if not HISTORY_DIR.exists():
+        return None
+    snapshots = sorted(HISTORY_DIR.glob("*.json"))
+    if not snapshots:
+        return None
+    # Return the most recent one
+    try:
+        return json.loads(snapshots[-1].read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+# ───────────── QoQ comparison ─────────────
+
+def compute_qoq(inv_data: dict) -> dict:
+    """Compare current holdings with the previous snapshot.
+    Returns qoq data keyed by investor id, plus a top-level summary."""
+    prev = find_previous_snapshot()
+    if not prev:
+        return {"available": False, "message": "No previous snapshot for comparison"}
+
+    prev_map: dict[str, dict] = {}
+    for pinv in prev.get("investors", []):
+        prev_map[pinv["id"]] = pinv
+
+    qoq: dict[str, dict] = {}
+    total_new = 0
+    total_exited = 0
+    total_increased = 0
+    total_decreased = 0
+
+    for inv in inv_data.get("investors", []):
+        pid = inv["id"]
+        pinv = prev_map.get(pid)
+        if not pinv:
+            qoq[pid] = {"available": False, "message": "No previous data for this investor"}
+            continue
+
+        # Build lookup for previous holdings (by cusip, fallback to normalized name)
+        prev_holdings: dict[str, dict] = {}
+        for ph in pinv.get("holdings", []):
+            key = ph.get("cusip", "") or ph.get("name", "").strip().upper()
+            if key:
+                prev_holdings[key] = ph
+
+        curr_holdings = inv.get("holdings", [])
+        changes = []
+        curr_keys: set[str] = set()
+
+        for ch in curr_holdings:
+            key = ch.get("cusip", "") or ch.get("name", "").strip().upper()
+            if not key:
+                continue
+            curr_keys.add(key)
+            prev_h = prev_holdings.get(key)
+            if not prev_h:
+                changes.append({
+                    "cusip": ch.get("cusip", ""),
+                    "ticker": ch.get("ticker", ""),
+                    "name": ch.get("name", ""),
+                    "change": "new",
+                    "weight_curr": ch.get("weight", 0),
+                    "weight_prev": 0,
+                    "value_curr": ch.get("value_usd", 0),
+                    "value_prev": 0,
+                })
+                total_new += 1
+            else:
+                w_curr = ch.get("weight", 0)
+                w_prev = prev_h.get("weight", 0)
+                diff = w_curr - w_prev
+                if abs(diff) < 0.005:
+                    change_type = "unchanged"
+                elif diff > 0:
+                    change_type = "increased"
+                    total_increased += 1
+                else:
+                    change_type = "decreased"
+                    total_decreased += 1
+                changes.append({
+                    "cusip": ch.get("cusip", ""),
+                    "ticker": ch.get("ticker", ""),
+                    "name": ch.get("name", ""),
+                    "change": change_type,
+                    "weight_curr": w_curr,
+                    "weight_prev": w_prev,
+                    "weight_delta": round(diff, 4),
+                    "value_curr": ch.get("value_usd", 0),
+                    "value_prev": prev_h.get("value_usd", 0),
+                })
+
+        # Find exited positions (in previous but not current)
+        exited = []
+        for pkey, ph in prev_holdings.items():
+            if pkey not in curr_keys:
+                exited.append({
+                    "cusip": ph.get("cusip", ""),
+                    "ticker": ph.get("ticker", ""),
+                    "name": ph.get("name", ""),
+                    "change": "exited",
+                    "weight_curr": 0,
+                    "weight_prev": ph.get("weight", 0),
+                    "value_curr": 0,
+                    "value_prev": ph.get("value_usd", 0),
+                })
+                total_exited += 1
+
+        # Sort: significant changes first (by absolute weight delta)
+        sig_changes = [c for c in changes if c["change"] != "unchanged"]
+        sig_changes.sort(key=lambda c: abs(c.get("weight_delta", 0)), reverse=True)
+
+        all_changes = sig_changes + [c for c in changes if c["change"] == "unchanged"]
+        all_changes += exited
+
+        # Summary stats
+        aum_prev = pinv.get("total_value_usd", 0)
+        aum_curr = inv.get("total_value_usd", 0)
+        aum_delta = aum_curr - aum_prev
+
+        qoq[pid] = {
+            "available": True,
+            "snapshot_quarter": prev.get("snapshot_quarter", ""),
+            "current_quarter": get_quarter(inv.get("period_of_report", "")),
+            "summary": {
+                "aum_prev": aum_prev,
+                "aum_curr": aum_curr,
+                "aum_delta": aum_delta,
+                "aum_delta_pct": round(aum_delta / aum_prev * 100, 2) if aum_prev else 0,
+                "positions_prev": pinv.get("holdings_count", 0),
+                "positions_curr": inv.get("holdings_count", 0),
+                "new_positions": sum(1 for c in changes if c["change"] == "new"),
+                "exited_positions": len(exited),
+                "increased": sum(1 for c in changes if c["change"] == "increased"),
+                "decreased": sum(1 for c in changes if c["change"] == "decreased"),
+                "unchanged": sum(1 for c in changes if c["change"] == "unchanged"),
+            },
+            "changes": all_changes,
+        }
+
+    return {
+        "available": True,
+        "snapshot_quarter": prev.get("snapshot_quarter", ""),
+        "summary": {
+            "total_new": total_new,
+            "total_exited": total_exited,
+            "total_increased": total_increased,
+            "total_decreased": total_decreased,
+        },
+        "investors": qoq,
+    }
+
+
 # ───────────── main ─────────────
 
 def main() -> int:
@@ -293,6 +518,13 @@ def main() -> int:
         )
 
     inv_data = json.loads(INV_PATH.read_text(encoding="utf-8"))
+
+    # Archive current data as a historical snapshot BEFORE updating
+    # Only archive if there are existing holdings (not a fresh init)
+    has_existing = any(inv.get("holdings") for inv in inv_data.get("investors", []))
+    if has_existing:
+        save_snapshot(inv_data)
+
     cache = load_cache()
     failed: list[str] = []
 
@@ -343,6 +575,11 @@ def main() -> int:
         time.sleep(SEC_RATE_SLEEP)
 
     inv_data["last_updated"] = datetime.now(timezone.utc).isoformat()
+
+    # Compute QoQ comparison against previous snapshot
+    qoq = compute_qoq(inv_data)
+    inv_data["qoq"] = qoq
+
     INV_PATH.write_text(
         json.dumps(inv_data, ensure_ascii=False, indent=2),
         encoding="utf-8",

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Whale Watch / Super Investors Portfolio Matrix</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&family=Fira+Code:wght@400;500;600&family=UnifrakturCook:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=Fira+Code:wght@400;500;600&family=UnifrakturCook:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FAFAFA;
@@ -21,15 +21,17 @@
   --c-value:#0057FF;
   --c-macro:#C2410C;
   --c-contrarian:#BE123C;
+  --c-congress:#0D6EFD;
   --group:var(--blue);
 }
 .matrix-group[data-style="value"],     .fbox[data-style="value"]     { --group: var(--c-value); }
 .matrix-group[data-style="macro"],     .fbox[data-style="macro"]     { --group: var(--c-macro); }
 .matrix-group[data-style="contrarian"],.fbox[data-style="contrarian"]{ --group: var(--c-contrarian); }
+.matrix-group[data-style="congress"],  .fbox[data-style="congress"]  { --group: var(--c-congress); }
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{background:var(--bg);color:var(--ink);overflow-x:hidden;}
 body{
-  font-family:'Syne','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-family:'Syne','Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif;
   font-feature-settings:"kern" on;
   -webkit-font-smoothing:antialiased;
 }
@@ -105,6 +107,13 @@ body{
   border-radius:50%;flex-shrink:0;
 }
 .mast-meta b{font-weight:700;}
+.mast-ranking-btn{
+  padding:6px 20px;border-radius:4px;
+  font-family:'Fira Code','Noto Sans SC',monospace;
+  font-size:11px;font-weight:700;color:#fff;background:var(--blue);
+  text-decoration:none;transition:opacity .15s;white-space:nowrap;
+}
+.mast-ranking-btn:hover{opacity:.9;}
 
 .mast-deck{
   font-family:'Playfair Display',serif;
@@ -546,6 +555,10 @@ body{
   .foot{padding:36px 18px 28px;}
 }
 
+/* ── SPECIAL ACCOUNT CARDS ── */
+.special-card { transition: box-shadow .2s; }
+.special-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+
 @media (max-width:680px){
   .stat{padding:22px 14px;}
   .stat-val{font-size:32px;}
@@ -553,6 +566,7 @@ body{
   .panel{padding:30px 24px 50px;width:100%;}
   .mast-tag{font-size:11px;padding:8px 12px;}
 }
+
 
 /* ── PHONE (<= 480px) ── */
 @media (max-width:480px){
@@ -640,44 +654,46 @@ body{
 <header class="masthead">
   <div class="mast-row">
     <div class="mast-tag">
-      <p>"All the holdings<br>that are fit to track."</p>
+      <p>"追踪所有值得追踪的<br>持仓数据。"</p>
     </div>
     <h1 class="mast-title">The Whale Watch</h1>
     <div class="mast-info">
-      <strong>National Edition</strong>
-      <p>13F filings auto-synced<br>from SEC EDGAR.</p>
-      <p><em>Long US equity only.</em></p>
-      <p>Updated <b id="hdrUpdated">—</b></p>
+      <strong>全国版</strong>
+      <p>13F文件自动同步<br>来源 SEC EDGAR。</p>
+      <p><em>仅限美股多头。</em></p>
+      <p>更新于 <b id="hdrUpdated">—</b></p>
     </div>
   </div>
 
   <div class="mast-rule-top"></div>
   <div class="mast-meta">
-    <span>VOL. I <span class="mast-meta-dot"></span> No. 13F</span>
+    <span>第I卷 <span class="mast-meta-dot"></span> 13F期</span>
     <span>© 2026 The Whale Watch</span>
     <span id="mastDate" style="font-weight:700;">—</span>
-    <span>Printed in Seoul</span>
-    <span>FREE</span>
+    <span>数字发行</span>
+    <span>免费</span>
+    <a href="./rankings.html" class="mast-ranking-btn">榜单</a>
+    <a href="./curves.html" class="mast-ranking-btn" style="background:var(--green);border-color:var(--green);">曲线</a>
   </div>
 
-  <p class="mast-deck">월가에서 가장 주목받는 <b style="font-weight:700">10인</b>의 분기 포트폴리오, <em>SEC가 공시한 그대로.</em></p>
+  <p class="mast-deck">追踪 <b style="font-weight:700" id="mastCount">18位</b>顶级投资者与机构的持仓及交易，<em>SEC 13F &amp; STOCK Act &amp; HKEX &amp; Autopilot &amp; Capitol Trades。</em></p>
 </header>
 
 <section class="stats">
   <div class="stat">
-    <div class="stat-lbl">Tracked Funds</div>
+    <div class="stat-lbl">追踪基金</div>
     <div class="stat-val mono"><span data-count="10">0</span></div>
   </div>
   <div class="stat">
-    <div class="stat-lbl">Total AUM</div>
+    <div class="stat-lbl">总管理规模</div>
     <div class="stat-val mono">$<span data-count="0" data-decimals="1" id="totalAum">0</span>B</div>
   </div>
   <div class="stat">
-    <div class="stat-lbl">Total Positions</div>
+    <div class="stat-lbl">总持仓数</div>
     <div class="stat-val mono"><span data-count="0" id="totalPos">0</span></div>
   </div>
   <div class="stat">
-    <div class="stat-lbl">Latest Filing</div>
+    <div class="stat-lbl">最近披露</div>
     <div class="stat-val small" id="latestFiling">—</div>
   </div>
 </section>
@@ -685,7 +701,7 @@ body{
 <section class="featured">
   <div class="fbox">
     <div class="fbox-meta">
-      <div class="fbox-meta-lbl">Featured Investor</div>
+      <div class="fbox-meta-lbl">精选投资者</div>
       <div class="fbox-nav">
         <span class="fbox-counter"><b id="fboxCur">01</b> / <span id="fboxTot">10</span></span>
         <button class="fbox-arrow" id="fboxPrev" aria-label="Previous investor">←</button>
@@ -693,28 +709,29 @@ body{
       </div>
     </div>
     <div class="fbox-content" id="fboxContent">
-      <div class="loading" style="padding:40px 0;">LOADING</div>
+      <div class="loading" style="padding:40px 0;">加载中</div>
     </div>
   </div>
 </section>
 
 <main class="matrix-wrap">
   <div class="matrix-head">
-    <div class="matrix-title">투자 스타일별 매트릭스</div>
-    <div class="matrix-title right">Click for detail →</div>
+    <div class="matrix-title">按投资风格矩阵</div>
+    <div class="matrix-title right">点击查看详情 →</div>
   </div>
-  <div id="matrix"><div class="loading">LOADING DATA</div></div>
+  <div id="matrix"><div class="loading">数据加载中</div></div>
 </main>
 
+
 <footer class="foot">
-  <div>Source <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> <a href="https://www.sec.gov/edgar" target="_blank" rel="noopener">SEC EDGAR 13F Filings</a> <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> 45-day reporting lag <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> Long US equity only</div>
-  <div>Photos <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (CC BY-SA / Public Domain) <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> Missing portraits rendered as initial badges</div>
-  <div>Whale Watch <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> No investment advice</div>
+  <div>数据来源 <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> <a href="https://www.sec.gov/edgar" target="_blank" rel="noopener">SEC EDGAR 13F文件</a> <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> <a href="https://www.capitoltrades.com/" target="_blank" rel="noopener">Capitol Trades (STOCK Act)</a> <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> 45天报告延迟 <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> 仅限美股多头</div>
+  <div>人物照片 <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener">Wikimedia Commons</a> (CC BY-SA / 公共领域) <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> 缺失照片以姓名首字母替代</div>
+  <div>Whale Watch <span class="sep" style="color:var(--ink-4);margin:0 8px">/</span> 不构成投资建议</div>
 </footer>
 
 <div class="backdrop" id="backdrop"></div>
 <aside class="panel" id="panel" aria-hidden="true">
-  <button class="panel-close" id="panelClose">CLOSE  ✕</button>
+  <button class="panel-close" id="panelClose">关闭 ✕</button>
   <div id="panelContent"></div>
 </aside>
 
@@ -741,7 +758,7 @@ async function load(){
     const r = await fetch('./data/investors.json?_=' + Date.now());
     DATA = await r.json();
   } catch(e){
-    document.getElementById('matrix').innerHTML = '<div class="loading" style="grid-column:1/-1;">DATA UNAVAILABLE</div>';
+    document.getElementById('matrix').innerHTML = '<div class="loading" style="grid-column:1/-1;">数据不可用</div>';
     return;
   }
   renderHeader();
@@ -784,8 +801,8 @@ function renderFeatured(){
   `).join('') + (restCount > 0 ? `
     <div class="legend-row">
       <span class="legend-swatch" style="background:var(--ink-4)"></span>
-      <span class="legend-tk">OTHER</span>
-      <span class="legend-name">${restCount} more positions</span>
+      <span class="legend-tk">其他</span>
+      <span class="legend-name">还有 ${restCount} 个持仓</span>
       <span class="legend-pct">${fmt.pct(otherWeight(inv.holdings))}%</span>
     </div>` : '') : '';
 
@@ -794,10 +811,10 @@ function renderFeatured(){
       <div>
         ${portrait}
         <div class="fbox-info">
-          <div class="fbox-style">${(inv.style||'').toUpperCase()} INVESTOR</div>
+          <div class="fbox-style">${(inv.style||'').toUpperCase()} 投资者</div>
           <div class="fbox-name">${escapeHtml(inv.name)}</div>
           <div class="fbox-name-ko">${escapeHtml(inv.name_ko||'')}</div>
-          <div class="fbox-fund">${escapeHtml(inv.fund)}</div>
+          <div class="fbox-fund">${escapeHtml(inv.fund)}${inv.source ? ' <span style=\"font-size:9px;color:var(--ink-4);font-weight:400;\">('+escapeHtml(inv.source)+')</span>' : ''}</div>
         </div>
       </div>
       <div class="fbox-right">
@@ -806,10 +823,10 @@ function renderFeatured(){
           <div class="fbox-legend">${legend}</div>
         </div>
         <div class="fbox-stats">
-          <div class="fbox-stat"><div class="fbox-stat-lbl">AUM</div><div class="fbox-stat-val">${fmt.money(inv.total_value_usd)}</div></div>
-          <div class="fbox-stat"><div class="fbox-stat-lbl">Positions</div><div class="fbox-stat-val">${inv.holdings_count || 0}</div></div>
-          <div class="fbox-stat"><div class="fbox-stat-lbl">Period</div><div class="fbox-stat-val small">${fmt.date(inv.period_of_report)}</div></div>
-          <div class="fbox-stat"><div class="fbox-stat-lbl">Filed</div><div class="fbox-stat-val small">${fmt.date(inv.filing_date)}</div></div>
+          <div class="fbox-stat"><div class="fbox-stat-lbl">${inv.style==='congress'?'交易量':'管理规模'}</div><div class="fbox-stat-val">${fmt.money(inv.total_value_usd)}</div></div>
+          <div class="fbox-stat"><div class="fbox-stat-lbl">持仓数</div><div class="fbox-stat-val">${inv.holdings_count || 0}</div></div>
+          <div class="fbox-stat"><div class="fbox-stat-lbl">报告期</div><div class="fbox-stat-val small">${fmt.date(inv.period_of_report)}</div></div>
+          <div class="fbox-stat"><div class="fbox-stat-lbl">披露日</div><div class="fbox-stat-val small">${fmt.date(inv.filing_date)}</div></div>
         </div>
       </div>
     </div>` : `
@@ -817,14 +834,14 @@ function renderFeatured(){
       <div>
         ${portrait}
         <div class="fbox-info">
-          <div class="fbox-style">${(inv.style||'').toUpperCase()} INVESTOR</div>
+          <div class="fbox-style">${(inv.style||'').toUpperCase()} 投资者</div>
           <div class="fbox-name">${escapeHtml(inv.name)}</div>
           <div class="fbox-name-ko">${escapeHtml(inv.name_ko||'')}</div>
-          <div class="fbox-fund">${escapeHtml(inv.fund)}</div>
+          <div class="fbox-fund">${escapeHtml(inv.fund)}${inv.source ? ' <span style=\"font-size:9px;color:var(--ink-4);font-weight:400;\">('+escapeHtml(inv.source)+')</span>' : ''}</div>
         </div>
       </div>
       <div class="fbox-right">
-        <div class="fbox-empty">— Holdings data pending —</div>
+        <div class="fbox-empty">— 持仓数据待更新 —</div>
       </div>
     </div>`;
 
@@ -853,7 +870,7 @@ function nextFeatured(delta){
 
 // ── Donut chart (single-color with opacity steps) ──
 
-const STYLE_HEX = {value:'#0057FF', macro:'#C2410C', contrarian:'#BE123C'};
+const STYLE_HEX = {value:'#0057FF', macro:'#C2410C', contrarian:'#BE123C', congress:'#0D6EFD'};
 function styleColor(style){
   return STYLE_HEX[style] || '#0057FF';
 }
@@ -878,7 +895,7 @@ function donutSVG(top, restCount, totalValue, style){
     opacity: donutOpacity(i),
   }));
   if (restCount > 0){
-    all.push({label:'OTHER', value:0, weight: 0, color:'#a8a8a8', opacity:1});
+    all.push({label:'其他', value:0, weight: 0, color:'#a8a8a8', opacity:1});
   }
   // Use weights summing to 100 for visual; if top-8 < 100, the "OTHER" slice fills the gap
   const used = top.reduce((s,h) => s + (h.weight||0), 0);
@@ -906,7 +923,7 @@ function donutSVG(top, restCount, totalValue, style){
     <svg class="fbox-donut" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
       ${paths}
       <text class="fbox-donut-cy" x="140" y="138">${fmt.money(totalValue)}</text>
-      <text class="fbox-donut-lbl" x="140" y="156">TOTAL AUM</text>
+      <text class="fbox-donut-lbl" x="140" y="156">总管理规模</text>
     </svg>`;
 }
 
@@ -933,6 +950,11 @@ function renderHeader(){
   document.getElementById('totalAum').dataset.count = (aum/1e9).toFixed(1);
   document.getElementById('totalPos').dataset.count = pos;
   document.getElementById('latestFiling').textContent = latest ? fmt.date(latest).replaceAll('-','.') : '—';
+  // Dynamic tracked funds count
+  document.querySelector('.stat .stat-val.mono span').dataset.count = DATA.investors.length;
+  // Update masthead count
+  const mc = document.getElementById('mastCount');
+  if (mc) mc.textContent = DATA.investors.length + '位';
 }
 
 function colHTML(inv, idx){
@@ -940,7 +962,7 @@ function colHTML(inv, idx){
   return `
     <div class="col">
       <div class="col-head" data-investor="${inv.id}">
-        <div class="col-rank">FUND ${String(idx+1).padStart(2,'0')}</div>
+        <div class="col-rank">基金 ${String(idx+1).padStart(2,'0')}</div>
         <div class="col-name">${escapeHtml(inv.name)}</div>
         <div class="col-name-ko">${escapeHtml(inv.name_ko||'')}</div>
         <div class="col-fund">${escapeHtml(inv.fund)}</div>
@@ -954,13 +976,13 @@ function colHTML(inv, idx){
           </div>
           <div class="cell-bar-track"><div class="cell-bar" data-w="${Math.min(100, h.weight||0)}"></div></div>
         </div>
-      `).join('') : `<div class="cell-empty">— Pending sync —</div>`}
+      `).join('') : `<div class="cell-empty">— 等待同步 —</div>`}
     </div>`;
 }
 
 function renderMatrix(){
   const m = document.getElementById('matrix');
-  const styleOrder = ['value','macro','contrarian'];
+  const styleOrder = ['value','macro','contrarian','congress'];
   m.innerHTML = styleOrder.map(s => {
     const meta = DATA.styles[s];
     const list = DATA.investors.filter(inv => inv.style === s);
@@ -969,7 +991,7 @@ function renderMatrix(){
       <section class="matrix-group" data-style="${s}">
         <div class="group-head">
           <div class="group-title-ko">${escapeHtml(meta.label)}</div>
-          <div class="group-title-en">${s.toUpperCase()} · ${list.length} FUNDS</div>
+          <div class="group-title-en">${s.toUpperCase()} · ${list.length} 个基金</div>
           <div class="group-desc">${escapeHtml(meta.description||'')}</div>
         </div>
         <div class="matrix-scroll">
@@ -1040,17 +1062,17 @@ function openInvestor(id){
   if (!inv) return;
   const top10 = (inv.holdings || []).slice(0, 10);
   openPanel(`
-    <div class="panel-kind">${(inv.style||'').toUpperCase()} INVESTOR</div>
+    <div class="panel-kind">${(inv.style||'').toUpperCase()} 投资者</div>
     <div class="panel-name">${escapeHtml(inv.name)}</div>
     <div class="panel-sub">${escapeHtml(inv.name_ko||'')} · ${escapeHtml(inv.fund)}</div>
     <div class="panel-divider"></div>
     <div class="panel-grid">
-      <div><div class="panel-stat-lbl">AUM</div><div class="panel-stat-val mono">${fmt.money(inv.total_value_usd)}</div></div>
-      <div><div class="panel-stat-lbl">Positions</div><div class="panel-stat-val mono">${inv.holdings_count||0}</div></div>
-      <div><div class="panel-stat-lbl">Period</div><div class="panel-stat-val small">${fmt.date(inv.period_of_report)}</div></div>
-      <div><div class="panel-stat-lbl">Filed</div><div class="panel-stat-val small">${fmt.date(inv.filing_date)}</div></div>
+      <div><div class="panel-stat-lbl">管理规模</div><div class="panel-stat-val mono">${fmt.money(inv.total_value_usd)}</div></div>
+      <div><div class="panel-stat-lbl">持仓数</div><div class="panel-stat-val mono">${inv.holdings_count||0}</div></div>
+      <div><div class="panel-stat-lbl">报告期</div><div class="panel-stat-val small">${fmt.date(inv.period_of_report)}</div></div>
+      <div><div class="panel-stat-lbl">披露日</div><div class="panel-stat-val small">${fmt.date(inv.filing_date)}</div></div>
     </div>
-    <div class="panel-section-lbl">Top 10 Holdings</div>
+    <div class="panel-section-lbl">前十大持仓</div>
     ${top10.length ? top10.map(h => `
       <div class="panel-bar-row">
         <div class="pb-name">${escapeHtml(h.ticker || (h.name||'').slice(0,14))}</div>
@@ -1076,15 +1098,15 @@ function openTicker(cusip, ticker, name){
   const displayName = owners[0].h.name || name || ticker || '';
   owners.sort((a,b) => (b.h.weight||0) - (a.h.weight||0));
   openPanel(`
-    <div class="panel-kind">Security</div>
+    <div class="panel-kind">证券</div>
     <div class="panel-name">${escapeHtml(displayTicker)}</div>
     <div class="panel-sub">${escapeHtml(displayName)} · CUSIP ${escapeHtml(cusip||'—')}</div>
     <div class="panel-divider"></div>
     <div class="panel-grid">
-      <div><div class="panel-stat-lbl">Held by</div><div class="panel-stat-val mono">${owners.length}<span style="color:var(--ink-4)"> / ${DATA.investors.length}</span></div></div>
-      <div><div class="panel-stat-lbl">Combined value</div><div class="panel-stat-val mono">${fmt.money(totalVal)}</div></div>
+      <div><div class="panel-stat-lbl">持有者</div><div class="panel-stat-val mono">${owners.length}<span style="color:var(--ink-4)"> / ${DATA.investors.length}</span></div></div>
+      <div><div class="panel-stat-lbl">合计市值</div><div class="panel-stat-val mono">${fmt.money(totalVal)}</div></div>
     </div>
-    <div class="panel-section-lbl">Owners by Weight</div>
+    <div class="panel-section-lbl">按权重排序的持有者</div>
     ${owners.map(o => `
       <div class="panel-bar-row">
         <div class="pb-name">${escapeHtml(o.inv.name.split(' ').slice(-1)[0])}</div>
@@ -1105,9 +1127,7 @@ document.addEventListener('keydown', e => {
   if (panelOpen) return;  // arrows in panel mode could be confusing
   if (e.key === 'ArrowLeft')  nextFeatured(-1);
   if (e.key === 'ArrowRight') nextFeatured(1);
-});
-
-load();
+});load();
 </script>
 </body>
 </html>

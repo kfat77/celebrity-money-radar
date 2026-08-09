@@ -1,18 +1,17 @@
 {
-  "last_updated": "2026-08-08T11:50:10.282699+00:00",
+  "last_updated": "2026-08-09T06:27:44.205912+00:00",
   "schema_version": 1,
   "note": "Holdings are populated by scripts/fetch_13f.py. Until the first run, holdings arrays are empty and the UI shows a 'data pending' state.",
   "investors": [
     {
       "id": "buffett",
       "name": "Warren Buffett",
-      "name_ko": "워런 버핏",
       "fund": "Berkshire Hathaway",
       "cik": "0001067983",
       "style": "value",
       "color": "#f5a623",
       "initials": "WB",
-      "tagline": "오마하의 현인. 장기·내재가치 중심의 가치투자 대명사.",
+      "tagline": "奥马哈先知，长期价值投资的代名词。",
       "filing_date": "2026-05-15",
       "period_of_report": "2026-03-31",
       "total_value_usd": 263095703570.0,
@@ -251,18 +250,19 @@
           "ticker": "JEF"
         }
       ],
-      "accession_number": "0001193125-26-226661"
+      "accession_number": "0001193125-26-226661",
+      "name_zh": "沃伦·巴菲特",
+      "source": "13F"
     },
     {
       "id": "ackman",
       "name": "Bill Ackman",
-      "name_ko": "빌 애크먼",
       "fund": "Pershing Square Capital",
       "cik": "0001336528",
       "style": "value",
       "color": "#a78bfa",
       "initials": "BA",
-      "tagline": "행동주의·집중투자. 소수 종목에 고확신 베팅.",
+      "tagline": "激进主义集中投资，少数标的高确信押注。",
       "filing_date": "2026-05-15",
       "period_of_report": "2026-03-31",
       "total_value_usd": 13714299861.0,
@@ -357,18 +357,19 @@
           "ticker": "GOOGL"
         }
       ],
-      "accession_number": "0001172661-26-002336"
+      "accession_number": "0001172661-26-002336",
+      "name_zh": "比尔·阿克曼",
+      "source": "13F"
     },
     {
       "id": "klarman",
       "name": "Seth Klarman",
-      "name_ko": "세스 클라먼",
       "fund": "Baupost Group",
       "cik": "0001061768",
       "style": "value",
       "color": "#06b6d4",
       "initials": "SK",
-      "tagline": "극도로 보수적인 가치투자자. 안전마진 강조.",
+      "tagline": "极度保守的价值投资者，安全边际至上。",
       "filing_date": "2026-05-14",
       "period_of_report": "2026-03-31",
       "total_value_usd": 5115380000.0,
@@ -551,18 +552,19 @@
           "ticker": "DNOW"
         }
       ],
-      "accession_number": "0001061768-26-000007"
+      "accession_number": "0001061768-26-000007",
+      "name_zh": "塞思·卡拉曼",
+      "source": "13F"
     },
     {
       "id": "li-lu",
       "name": "Li Lu",
-      "name_ko": "리 루",
       "fund": "Himalaya Capital",
       "cik": "0001709323",
       "style": "value",
       "color": "#6366f1",
       "initials": "LL",
-      "tagline": "찰리 멍거가 가장 신뢰했다는 가치투자자. 동아시아 기업 강점.",
+      "tagline": "查理·芒格最信赖的价值投资者，擅长东亚企业。",
       "filing_date": "2026-05-15",
       "period_of_report": "2026-03-31",
       "total_value_usd": 3201226867.0,
@@ -681,18 +683,19 @@
           "ticker": "MSCI"
         }
       ],
-      "accession_number": "0002043585-26-000013"
+      "accession_number": "0002043585-26-000013",
+      "name_zh": "李录",
+      "source": "13F"
     },
     {
       "id": "pabrai",
       "name": "Mohnish Pabrai",
-      "name_ko": "모니시 파브라이",
       "fund": "Pabrai Investments",
       "cik": "0001549575",
       "style": "value",
       "color": "#10b981",
       "initials": "MP",
-      "tagline": "버핏 추종자. 4-5종목 초집중 투자.",
+      "tagline": "巴菲特追随者，4-5只标的超集中投资。",
       "filing_date": "2026-05-14",
       "period_of_report": "2026-03-31",
       "total_value_usd": 422885142.0,
@@ -723,18 +726,19 @@
           "ticker": "AMR"
         }
       ],
-      "accession_number": "0001549575-26-000009"
+      "accession_number": "0001549575-26-000009",
+      "name_zh": "莫尼什·帕伯莱",
+      "source": "13F"
     },
     {
       "id": "dalio",
       "name": "Ray Dalio",
-      "name_ko": "레이 달리오",
       "fund": "Bridgewater Associates",
       "cik": "0001350694",
       "style": "macro",
       "color": "#fb923c",
       "initials": "RD",
-      "tagline": "세계 최대 헤지펀드 창립자. 매크로·올웨더 포트폴리오.",
+      "tagline": "全球最大对冲基金创始人，宏观全天候策略。",
       "filing_date": "2026-05-15",
       "period_of_report": "2026-03-31",
       "total_value_usd": 22404547213.0,
@@ -8685,18 +8689,19 @@
           "ticker": "JBLU"
         }
       ],
-      "accession_number": "0001350694-26-000002"
+      "accession_number": "0001350694-26-000002",
+      "name_zh": "雷·达里奥",
+      "source": "13F"
     },
     {
       "id": "druckenmiller",
       "name": "Stanley Druckenmiller",
-      "name_ko": "스탠리 드러켄밀러",
       "fund": "Duquesne Family Office",
       "cik": "0001536411",
       "style": "macro",
       "color": "#eab308",
       "initials": "SD",
-      "tagline": "전설적 매크로 트레이더. 경제 사이클·통화 전문.",
+      "tagline": "传奇宏观交易员，精通经济周期与货币。",
       "filing_date": "2026-05-15",
       "period_of_report": "2026-03-31",
       "total_value_usd": 2937172000.0,
@@ -9223,18 +9228,19 @@
           "ticker": ""
         }
       ],
-      "accession_number": "0001536411-26-000004"
+      "accession_number": "0001536411-26-000004",
+      "name_zh": "斯坦利·德鲁肯米勒",
+      "source": "13F"
     },
     {
       "id": "tepper",
       "name": "David Tepper",
-      "name_ko": "데이비드 테퍼",
       "fund": "Appaloosa Management",
       "cik": "0001656456",
       "style": "macro",
       "color": "#f43f5e",
       "initials": "DT",
-      "tagline": "디스트레스트·이벤트 드리븐. 위기 때 과감한 베팅.",
+      "tagline": "不良资产事件驱动型，危机中大胆下注。",
       "filing_date": "2026-05-15",
       "period_of_report": "2026-03-31",
       "total_value_usd": 5933477986.0,
@@ -9489,68 +9495,19 @@
           "ticker": ""
         }
       ],
-      "accession_number": "0001656456-26-000002"
-    },
-    {
-      "id": "burry",
-      "name": "Michael Burry",
-      "name_ko": "마이클 버리",
-      "fund": "Scion Asset Management",
-      "cik": "0001649339",
-      "style": "contrarian",
-      "color": "#ef4444",
-      "initials": "MB",
-      "tagline": "빅쇼트의 그 사람. 극단적 역발상·공매도 베팅.",
-      "filing_date": "2025-11-03",
-      "period_of_report": "2025-09-30",
-      "total_value_usd": 68138076.0,
-      "holdings_count": 4,
-      "holdings": [
-        {
-          "cusip": "60855R100",
-          "name": "MOLINA HEALTHCARE INC",
-          "value_usd": 23920000.0,
-          "shares": 125000,
-          "weight": 35.1052,
-          "ticker": "MOH"
-        },
-        {
-          "cusip": "550021109",
-          "name": "LULULEMON ATHLETICA INC",
-          "value_usd": 17793000.0,
-          "shares": 100000,
-          "weight": 26.1132,
-          "ticker": "LULU"
-        },
-        {
-          "cusip": "78442P106",
-          "name": "SLM CORP",
-          "value_usd": 13287895.0,
-          "shares": 480054,
-          "weight": 19.5014,
-          "ticker": "SLM"
-        },
-        {
-          "cusip": "116794207",
-          "name": "BRUKER CORP",
-          "value_usd": 13137181.0,
-          "shares": 48334,
-          "weight": 19.2802,
-          "ticker": "BRKR 6.375 09/01/28"
-        }
-      ],
-      "accession_number": "0001649339-25-000007"
+      "accession_number": "0001656456-26-000002",
+      "name_zh": "大卫·泰珀",
+      "source": "13F"
     },
     {
       "id": "wood",
       "name": "Cathie Wood",
-      "name_ko": "캐시 우드",
       "fund": "ARK Invest",
       "cik": "0001697748",
       "style": "contrarian",
       "color": "#ec4899",
       "initials": "CW",
-      "tagline": "파괴적 혁신 테마 집중. AI·유전체학·전기차 적극 베팅.",
+      "tagline": "颠覆性创新主题投资，AI、基因编辑、电动车重仓。",
       "filing_date": "2026-05-12",
       "period_of_report": "2026-03-31",
       "total_value_usd": 12858877166.0,
@@ -11005,24 +10962,1088 @@
           "ticker": "IWB"
         }
       ],
-      "accession_number": "0001104659-26-059240"
+      "accession_number": "0001104659-26-059240",
+      "name_zh": "凯茜·伍德",
+      "source": "13F"
+    },
+    {
+      "id": "pelosi",
+      "name": "Nancy Pelosi",
+      "name_zh": "南希·佩洛西",
+      "fund": "US House of Representatives",
+      "source": "STOCK Act",
+      "cik": "",
+      "style": "congress",
+      "color": "#0D6EFD",
+      "initials": "NP",
+      "tagline": "前众议院议长，加州民主党。288笔交易/.53亿，国会最受关注的交易者。+174.8% vs SPY。",
+      "filing_date": "2026-06-23",
+      "period_of_report": "2026-05-29",
+      "total_value_usd": 285500000.0,
+      "holdings_count": 18,
+      "holdings": [
+        {
+          "ticker": "NVDA",
+          "name": "NVIDIA CORPORATION",
+          "value_usd": 107500000.0,
+          "weight": 37.65,
+          "shares": 1
+        },
+        {
+          "ticker": "AAPL",
+          "name": "APPLE INC",
+          "value_usd": 52100000.0,
+          "weight": 18.25,
+          "shares": 1
+        },
+        {
+          "ticker": "AMZN",
+          "name": "AMAZON COM INC",
+          "value_usd": 21900000.0,
+          "weight": 7.67,
+          "shares": 1
+        },
+        {
+          "ticker": "AVGO",
+          "name": "BROADCOM INC",
+          "value_usd": 19700000.0,
+          "weight": 6.9,
+          "shares": 1
+        },
+        {
+          "ticker": "GOOGL",
+          "name": "ALPHABET INC CLASS A",
+          "value_usd": 15500000.0,
+          "weight": 5.43,
+          "shares": 1
+        },
+        {
+          "ticker": "MSFT",
+          "name": "MICROSOFT CORP",
+          "value_usd": 9600000.0,
+          "weight": 3.36,
+          "shares": 1
+        },
+        {
+          "ticker": "GOOG",
+          "name": "ALPHABET INC CLASS C",
+          "value_usd": 9500000.0,
+          "weight": 3.33,
+          "shares": 1
+        },
+        {
+          "ticker": "AB",
+          "name": "ALLIANCEBERNSTEIN HOLDING",
+          "value_usd": 8200000.0,
+          "weight": 2.87,
+          "shares": 1
+        },
+        {
+          "ticker": "PANW",
+          "name": "PALO ALTO NETWORKS INC",
+          "value_usd": 6700000.0,
+          "weight": 2.35,
+          "shares": 1
+        },
+        {
+          "ticker": "NFLX",
+          "name": "NETFLIX INC",
+          "value_usd": 6000000.0,
+          "weight": 2.1,
+          "shares": 1
+        },
+        {
+          "ticker": "DIS",
+          "name": "WALT DISNEY COMPANY",
+          "value_usd": 5800000.0,
+          "weight": 2.03,
+          "shares": 1
+        },
+        {
+          "ticker": "TSLA",
+          "name": "TESLA INC",
+          "value_usd": 4200000.0,
+          "weight": 1.47,
+          "shares": 1
+        },
+        {
+          "ticker": "CRM",
+          "name": "SALESFORCE INC",
+          "value_usd": 3900000.0,
+          "weight": 1.37,
+          "shares": 1
+        },
+        {
+          "ticker": "INTC",
+          "name": "INTEL CORP",
+          "value_usd": 2600000.0,
+          "weight": 0.91,
+          "shares": 1
+        },
+        {
+          "ticker": "UBER",
+          "name": "UBER TECHNOLOGIES INC",
+          "value_usd": 1400000.0,
+          "weight": 0.49,
+          "shares": 1
+        },
+        {
+          "ticker": "TEM",
+          "name": "TEMPUS AI INC",
+          "value_usd": 75000.0,
+          "weight": 0.03,
+          "shares": 1
+        },
+        {
+          "ticker": "VST",
+          "name": "VISTRA CORP",
+          "value_usd": 175000.0,
+          "weight": 0.06,
+          "shares": 1
+        },
+        {
+          "ticker": "MU",
+          "name": "MICRON TECHNOLOGY INC",
+          "value_usd": 3000000.0,
+          "weight": 1.05,
+          "shares": 1
+        }
+      ]
+    },
+    {
+      "id": "li-ka-shing",
+      "name": "Li Ka-shing",
+      "name_zh": "李嘉诚",
+      "fund": "长江集团 (CK Hutchison / CK Asset)",
+      "source": "HKEX",
+      "cik": "",
+      "style": "value",
+      "color": "#0057FF",
+      "initials": "LK",
+      "tagline": "香港首富，长江集团创始人。通过家族信托控股长和系，个人净资产约44亿。",
+      "filing_date": "2025-12-31",
+      "period_of_report": "2025-12-31",
+      "total_value_usd": 173730000000.0,
+      "holdings_count": 8,
+      "holdings": [
+        {
+          "ticker": "00001.HK",
+          "name": "CK HUTCHISON HOLDINGS",
+          "value_usd": 78700000000.0,
+          "weight": 45.3,
+          "shares": 1162932010
+        },
+        {
+          "ticker": "01113.HK",
+          "name": "CK ASSET HOLDINGS",
+          "value_usd": 78800000000.0,
+          "weight": 45.36,
+          "shares": 1707484843
+        },
+        {
+          "ticker": "01658.HK",
+          "name": "POSTAL SAVINGS BANK OF CHINA",
+          "value_usd": 9900000000.0,
+          "weight": 5.7,
+          "shares": 1970838000
+        },
+        {
+          "ticker": "CVE",
+          "name": "CENOVUS ENERGY INC",
+          "value_usd": 3500000000.0,
+          "weight": 2.01,
+          "shares": 1
+        },
+        {
+          "ticker": "01038.HK",
+          "name": "CK INFRASTRUCTURE HOLDINGS",
+          "value_usd": 1800000000.0,
+          "weight": 1.04,
+          "shares": 1
+        },
+        {
+          "ticker": "00778.HK",
+          "name": "FORTUNE REIT",
+          "value_usd": 600000000.0,
+          "weight": 0.35,
+          "shares": 1
+        },
+        {
+          "ticker": "00215.HK",
+          "name": "HUTCHISON TELECOM HK",
+          "value_usd": 350000000.0,
+          "weight": 0.2,
+          "shares": 1
+        },
+        {
+          "ticker": "00808.HK",
+          "name": "PROSPERITY REIT",
+          "value_usd": 80000000.0,
+          "weight": 0.05,
+          "shares": 1
+        }
+      ]
+    },
+    {
+      "id": "claude",
+      "name": "The Claude Portfolio",
+      "fund": "AI Finance Labs (Autopilot)",
+      "cik": "",
+      "style": "contrarian",
+      "color": "#6366F1",
+      "initials": "CL",
+      "tagline": "Claude AI完全自主决策，2026.04.01启动，0,000初始资金→+19.04% vs SPY+12.24%，700万+跟单资金",
+      "filing_date": "2026-08-07",
+      "period_of_report": "2026-08-07",
+      "total_value_usd": 50000.0,
+      "holdings_count": 14,
+      "holdings": [
+        {
+          "ticker": "NOW",
+          "name": "ServiceNow Inc",
+          "value_usd": 0,
+          "weight": 13.0,
+          "shares": 1
+        },
+        {
+          "ticker": "ZETA",
+          "name": "Zeta Global Holdings",
+          "value_usd": 0,
+          "weight": 10.0,
+          "shares": 1
+        },
+        {
+          "ticker": "VST",
+          "name": "Vistra Corp",
+          "value_usd": 0,
+          "weight": 9.0,
+          "shares": 1
+        },
+        {
+          "ticker": "AVGO",
+          "name": "Broadcom Inc",
+          "value_usd": 0,
+          "weight": 3.0,
+          "shares": 1
+        },
+        {
+          "ticker": "PGY",
+          "name": "Pagaya Technologies",
+          "value_usd": 0,
+          "weight": 7.0,
+          "shares": 1
+        },
+        {
+          "ticker": "PLMR",
+          "name": "Palomar Holdings",
+          "value_usd": 0,
+          "weight": 7.0,
+          "shares": 1
+        },
+        {
+          "ticker": "HALO",
+          "name": "Halozyme Therapeutics",
+          "value_usd": 0,
+          "weight": 6.0,
+          "shares": 1
+        },
+        {
+          "ticker": "ICE",
+          "name": "Intercontinental Exchange",
+          "value_usd": 0,
+          "weight": 6.0,
+          "shares": 1
+        },
+        {
+          "ticker": "INTR",
+          "name": "Interactive Brokers",
+          "value_usd": 0,
+          "weight": 6.0,
+          "shares": 1
+        },
+        {
+          "ticker": "LLY",
+          "name": "Eli Lilly & Co",
+          "value_usd": 0,
+          "weight": 5.0,
+          "shares": 1
+        },
+        {
+          "ticker": "TMO",
+          "name": "Thermo Fisher Scientific",
+          "value_usd": 0,
+          "weight": 4.0,
+          "shares": 1
+        },
+        {
+          "ticker": "HWM",
+          "name": "Howmet Aerospace",
+          "value_usd": 0,
+          "weight": 3.0,
+          "shares": 1
+        },
+        {
+          "ticker": "AU",
+          "name": "AngloGold Ashanti",
+          "value_usd": 0,
+          "weight": 2.0,
+          "shares": 1
+        },
+        {
+          "ticker": "MGNI",
+          "name": "Magnite Inc",
+          "value_usd": 0,
+          "weight": 2.0,
+          "shares": 1
+        }
+      ],
+      "accession_number": "",
+      "name_zh": "Claude投资组合",
+      "source": "Autopilot"
+    },
+    {
+      "id": "david-taylor",
+      "name": "David J. Taylor",
+      "name_zh": "大卫·泰勒",
+      "fund": "US House (OH-02)",
+      "source": "STOCK Act",
+      "cik": "",
+      "style": "congress",
+      "color": "#0D6EFD",
+      "initials": "DT",
+      "tagline": "S-Tier国会交易者(唯一)，77%胜率全场第一，89笔交易77%跑赢标普500。",
+      "filing_date": "2026-08-07",
+      "period_of_report": "2026-07-24",
+      "total_value_usd": 1880000.0,
+      "holdings_count": 8,
+      "holdings": [
+        {
+          "ticker": "GOOGL",
+          "name": "ALPHABET INC",
+          "value_usd": 250000,
+          "weight": 13.3,
+          "shares": 1
+        },
+        {
+          "ticker": "AVGO",
+          "name": "BROADCOM INC",
+          "value_usd": 250000,
+          "weight": 13.3,
+          "shares": 1
+        },
+        {
+          "ticker": "MSFT",
+          "name": "MICROSOFT CORP",
+          "value_usd": 220000,
+          "weight": 11.7,
+          "shares": 1
+        },
+        {
+          "ticker": "CVX",
+          "name": "CHEVRON CORP",
+          "value_usd": 250000,
+          "weight": 13.3,
+          "shares": 1
+        },
+        {
+          "ticker": "IBP",
+          "name": "INSTALLED BUILDING PRODUCTS",
+          "value_usd": 200000,
+          "weight": 10.6,
+          "shares": 1
+        },
+        {
+          "ticker": "KR",
+          "name": "KROGER CO",
+          "value_usd": 180000,
+          "weight": 9.6,
+          "shares": 1
+        },
+        {
+          "ticker": "AEP",
+          "name": "AMERICAN ELECTRIC POWER",
+          "value_usd": 250000,
+          "weight": 13.3,
+          "shares": 1
+        },
+        {
+          "ticker": "FITB",
+          "name": "FIFTH THIRD BANCORP",
+          "value_usd": 250000,
+          "weight": 13.3,
+          "shares": 1
+        }
+      ]
+    },
+    {
+      "id": "cleo-fields",
+      "name": "Cleo Fields",
+      "name_zh": "克利奥·菲尔兹",
+      "fund": "US House (LA-06)",
+      "source": "STOCK Act",
+      "cik": "",
+      "style": "congress",
+      "color": "#0D6EFD",
+      "initials": "CF",
+      "tagline": "A级国会交易者，57%胜率+8.93%平均阿尔法，集中科技股，193笔交易。",
+      "filing_date": "2026-07-31",
+      "period_of_report": "2026-07-10",
+      "total_value_usd": 22820000.0,
+      "holdings_count": 8,
+      "holdings": [
+        {
+          "ticker": "NVDA",
+          "name": "NVIDIA CORP",
+          "value_usd": 4500000,
+          "weight": 19.7,
+          "shares": 1
+        },
+        {
+          "ticker": "GOOGL",
+          "name": "ALPHABET INC",
+          "value_usd": 3500000,
+          "weight": 15.3,
+          "shares": 1
+        },
+        {
+          "ticker": "MSFT",
+          "name": "MICROSOFT CORP",
+          "value_usd": 3200000,
+          "weight": 14.0,
+          "shares": 1
+        },
+        {
+          "ticker": "AAPL",
+          "name": "APPLE INC",
+          "value_usd": 2800000,
+          "weight": 12.3,
+          "shares": 1
+        },
+        {
+          "ticker": "TSM",
+          "name": "TAIWAN SEMICONDUCTOR",
+          "value_usd": 3500000,
+          "weight": 15.3,
+          "shares": 1
+        },
+        {
+          "ticker": "AMD",
+          "name": "ADVANCED MICRO DEVICES",
+          "value_usd": 2000000,
+          "weight": 8.8,
+          "shares": 1
+        },
+        {
+          "ticker": "QUBT",
+          "name": "QUANTINUUM INC",
+          "value_usd": 1500000,
+          "weight": 6.6,
+          "shares": 1
+        },
+        {
+          "ticker": "SPY",
+          "name": "SPDR S&P 500 ETF",
+          "value_usd": 1820000,
+          "weight": 8.0,
+          "shares": 1
+        }
+      ]
+    },
+    {
+      "id": "tim-moore",
+      "name": "Tim Moore",
+      "name_zh": "蒂姆·穆尔",
+      "fund": "US House (NC-14)",
+      "source": "STOCK Act",
+      "cik": "",
+      "style": "congress",
+      "color": "#0D6EFD",
+      "initials": "TM",
+      "tagline": "2025年国会全场第一+52%，54%胜率，激进小盘+杠杆ETF策略。",
+      "filing_date": "2026-08-01",
+      "period_of_report": "2026-07-01",
+      "total_value_usd": 2500000.0,
+      "holdings_count": 8,
+      "holdings": [
+        {
+          "ticker": "TNA",
+          "name": "DIREXION SMALL CAP BULL 3X",
+          "value_usd": 1200000,
+          "weight": 48.0,
+          "shares": 1
+        },
+        {
+          "ticker": "CBRL",
+          "name": "CRACKER BARREL OLD COUNTRY",
+          "value_usd": 350000,
+          "weight": 14.0,
+          "shares": 1
+        },
+        {
+          "ticker": "NVDA",
+          "name": "NVIDIA CORP",
+          "value_usd": 250000,
+          "weight": 10.0,
+          "shares": 1
+        },
+        {
+          "ticker": "GE",
+          "name": "GENERAL ELECTRIC",
+          "value_usd": 200000,
+          "weight": 8.0,
+          "shares": 1
+        },
+        {
+          "ticker": "CAT",
+          "name": "CATERPILLAR INC",
+          "value_usd": 150000,
+          "weight": 6.0,
+          "shares": 1
+        },
+        {
+          "ticker": "XOM",
+          "name": "EXXON MOBIL CORP",
+          "value_usd": 150000,
+          "weight": 6.0,
+          "shares": 1
+        },
+        {
+          "ticker": "JPM",
+          "name": "JPMORGAN CHASE",
+          "value_usd": 100000,
+          "weight": 4.0,
+          "shares": 1
+        },
+        {
+          "ticker": "GS",
+          "name": "GOLDMAN SACHS",
+          "value_usd": 100000,
+          "weight": 4.0,
+          "shares": 1
+        }
+      ]
+    },
+    {
+      "id": "john-fetterman",
+      "name": "John Fetterman",
+      "name_zh": "约翰·费特曼",
+      "fund": "US Senate (PA)",
+      "source": "STOCK Act",
+      "cik": "",
+      "style": "congress",
+      "color": "#0D6EFD",
+      "initials": "JF",
+      "tagline": "参议员精选交易者，50%胜率，小而精的投资组合，2025年回报+73%。",
+      "filing_date": "2026-08-01",
+      "period_of_report": "2026-07-01",
+      "total_value_usd": 450000.0,
+      "holdings_count": 5,
+      "holdings": [
+        {
+          "ticker": "NVDA",
+          "name": "NVIDIA CORP",
+          "value_usd": 120000,
+          "weight": 26.7,
+          "shares": 1
+        },
+        {
+          "ticker": "MSFT",
+          "name": "MICROSOFT CORP",
+          "value_usd": 100000,
+          "weight": 22.2,
+          "shares": 1
+        },
+        {
+          "ticker": "AAPL",
+          "name": "APPLE INC",
+          "value_usd": 90000,
+          "weight": 20.0,
+          "shares": 1
+        },
+        {
+          "ticker": "GOOGL",
+          "name": "ALPHABET INC",
+          "value_usd": 80000,
+          "weight": 17.8,
+          "shares": 1
+        },
+        {
+          "ticker": "AMZN",
+          "name": "AMAZON.COM INC",
+          "value_usd": 60000,
+          "weight": 13.3,
+          "shares": 1
+        }
+      ]
+    },
+    {
+      "id": "susie-lee",
+      "name": "Susie Lee",
+      "name_zh": "苏西·李",
+      "fund": "US House (NV-03)",
+      "source": "STOCK Act",
+      "cik": "",
+      "style": "congress",
+      "color": "#0D6EFD",
+      "initials": "SL",
+      "tagline": "A级国会交易者#4，1273笔交易(统计显著性最高)，45%胜率+27.5%阿尔法。",
+      "filing_date": "2026-07-09",
+      "period_of_report": "2026-07-01",
+      "total_value_usd": 2180000.0,
+      "holdings_count": 8,
+      "holdings": [
+        {
+          "ticker": "FLL",
+          "name": "FULL HOUSE RESORTS INC",
+          "value_usd": 600000,
+          "weight": 27.5,
+          "shares": 1
+        },
+        {
+          "ticker": "MGM",
+          "name": "MGM RESORTS INTERNATIONAL",
+          "value_usd": 350000,
+          "weight": 16.1,
+          "shares": 1
+        },
+        {
+          "ticker": "MAR",
+          "name": "MARRIOTT INTERNATIONAL",
+          "value_usd": 280000,
+          "weight": 12.8,
+          "shares": 1
+        },
+        {
+          "ticker": "CCL",
+          "name": "CARNIVAL CORP",
+          "value_usd": 250000,
+          "weight": 11.5,
+          "shares": 1
+        },
+        {
+          "ticker": "SBUX",
+          "name": "STARBUCKS CORP",
+          "value_usd": 200000,
+          "weight": 9.2,
+          "shares": 1
+        },
+        {
+          "ticker": "GDEN",
+          "name": "GOLDEN ENTERTAINMENT",
+          "value_usd": 200000,
+          "weight": 9.2,
+          "shares": 1
+        },
+        {
+          "ticker": "CNTY",
+          "name": "CENTURY CASINOS INC",
+          "value_usd": 150000,
+          "weight": 6.9,
+          "shares": 1
+        },
+        {
+          "ticker": "SONY",
+          "name": "SONY GROUP CORP",
+          "value_usd": 150000,
+          "weight": 6.9,
+          "shares": 1
+        }
+      ]
+    },
+    {
+      "id": "gil-cisneros",
+      "name": "Gilbert Cisneros",
+      "name_zh": "吉尔·西斯内罗斯",
+      "fund": "US House (CA-31)",
+      "source": "STOCK Act",
+      "cik": "",
+      "style": "congress",
+      "color": "#0D6EFD",
+      "initials": "GC",
+      "tagline": "A级#5/国会最活跃，2503笔交易(最多样本)，43%胜率+21.13%阿尔法。",
+      "filing_date": "2026-07-03",
+      "period_of_report": "2026-06-30",
+      "total_value_usd": 33910000.0,
+      "holdings_count": 8,
+      "holdings": [
+        {
+          "ticker": "AAPL",
+          "name": "APPLE INC",
+          "value_usd": 6000000,
+          "weight": 17.7,
+          "shares": 1
+        },
+        {
+          "ticker": "AMD",
+          "name": "ADVANCED MICRO DEVICES",
+          "value_usd": 4500000,
+          "weight": 13.3,
+          "shares": 1
+        },
+        {
+          "ticker": "ABT",
+          "name": "ABBOTT LABORATORIES",
+          "value_usd": 4000000,
+          "weight": 11.8,
+          "shares": 1
+        },
+        {
+          "ticker": "ACN",
+          "name": "ACCENTURE PLC",
+          "value_usd": 3800000,
+          "weight": 11.2,
+          "shares": 1
+        },
+        {
+          "ticker": "ADP",
+          "name": "AUTOMATIC DATA PROCESSING",
+          "value_usd": 3500000,
+          "weight": 10.3,
+          "shares": 1
+        },
+        {
+          "ticker": "BSX",
+          "name": "BOSTON SCIENTIFIC",
+          "value_usd": 3200000,
+          "weight": 9.4,
+          "shares": 1
+        },
+        {
+          "ticker": "BIIB",
+          "name": "BIOGEN INC",
+          "value_usd": 3000000,
+          "weight": 8.8,
+          "shares": 1
+        },
+        {
+          "ticker": "BOOT",
+          "name": "BOOT BARN HOLDINGS",
+          "value_usd": 2910000,
+          "weight": 8.6,
+          "shares": 1
+        }
+      ]
+    },
+    {
+      "id": "sheldon-whitehouse",
+      "name": "Sheldon Whitehouse",
+      "name_zh": "谢尔登·怀特豪斯",
+      "fund": "US Senate (RI)",
+      "source": "STOCK Act",
+      "cik": "",
+      "style": "congress",
+      "color": "#0D6EFD",
+      "initials": "SW",
+      "tagline": "A级国会交易者#1，alpha +638%极端异常值，350笔交易，43%胜率。COHR/MU买入，NVDA卖出。",
+      "filing_date": "2026-08-03",
+      "period_of_report": "2026-07-31",
+      "total_value_usd": 2540000.0,
+      "holdings_count": 8,
+      "holdings": [
+        {
+          "ticker": "COHR",
+          "name": "COHERENT CORP",
+          "value_usd": 450000,
+          "weight": 17.7,
+          "shares": 1
+        },
+        {
+          "ticker": "MU",
+          "name": "MICRON TECHNOLOGY",
+          "value_usd": 400000,
+          "weight": 15.7,
+          "shares": 1
+        },
+        {
+          "ticker": "AAPL",
+          "name": "APPLE INC",
+          "value_usd": 380000,
+          "weight": 15.0,
+          "shares": 1
+        },
+        {
+          "ticker": "NVDA",
+          "name": "NVIDIA CORP",
+          "value_usd": 350000,
+          "weight": 13.8,
+          "shares": 1
+        },
+        {
+          "ticker": "LOW",
+          "name": "LOWES COMPANIES INC",
+          "value_usd": 300000,
+          "weight": 11.8,
+          "shares": 1
+        },
+        {
+          "ticker": "ORCL",
+          "name": "ORACLE CORP",
+          "value_usd": 280000,
+          "weight": 11.0,
+          "shares": 1
+        },
+        {
+          "ticker": "JPM",
+          "name": "JPMORGAN CHASE",
+          "value_usd": 200000,
+          "weight": 7.9,
+          "shares": 1
+        },
+        {
+          "ticker": "HD",
+          "name": "HOME DEPOT INC",
+          "value_usd": 180000,
+          "weight": 7.1,
+          "shares": 1
+        }
+      ]
+    },
+    {
+      "id": "pete-sessions",
+      "name": "Pete Sessions",
+      "name_zh": "皮特·塞申斯",
+      "fund": "US House (TX-17)",
+      "source": "STOCK Act",
+      "cik": "",
+      "style": "congress",
+      "color": "#0D6EFD",
+      "initials": "PS",
+      "tagline": "A级#2，alpha +55.5%，378笔交易，41%胜率。NVDA/MSFT重仓。",
+      "filing_date": "2026-07-27",
+      "period_of_report": "2026-07-24",
+      "total_value_usd": 3250000.0,
+      "holdings_count": 7,
+      "holdings": [
+        {
+          "ticker": "NVDA",
+          "name": "NVIDIA CORP",
+          "value_usd": 800000,
+          "weight": 24.6,
+          "shares": 1
+        },
+        {
+          "ticker": "MSFT",
+          "name": "MICROSOFT CORP",
+          "value_usd": 600000,
+          "weight": 18.5,
+          "shares": 1
+        },
+        {
+          "ticker": "ARCC",
+          "name": "ARES CAPITAL CORP",
+          "value_usd": 450000,
+          "weight": 13.8,
+          "shares": 1
+        },
+        {
+          "ticker": "VZ",
+          "name": "VERIZON COMMUNICATIONS",
+          "value_usd": 400000,
+          "weight": 12.3,
+          "shares": 1
+        },
+        {
+          "ticker": "DHR",
+          "name": "DANAHER CORP",
+          "value_usd": 350000,
+          "weight": 10.8,
+          "shares": 1
+        },
+        {
+          "ticker": "JNJ",
+          "name": "JOHNSON & JOHNSON",
+          "value_usd": 350000,
+          "weight": 10.8,
+          "shares": 1
+        },
+        {
+          "ticker": "MO",
+          "name": "ALTRIA GROUP INC",
+          "value_usd": 300000,
+          "weight": 9.2,
+          "shares": 1
+        }
+      ]
+    },
+    {
+      "id": "dwight-evans",
+      "name": "Dwight Evans",
+      "name_zh": "德怀特·埃文斯",
+      "fund": "US House (PA-03)",
+      "source": "STOCK Act",
+      "cik": "",
+      "style": "congress",
+      "color": "#0D6EFD",
+      "initials": "DE",
+      "tagline": "A级#3，alpha +33.4%，177笔交易，44%胜率。NVDA买入+大量科技股卖出。",
+      "filing_date": "2026-06-25",
+      "period_of_report": "2026-06-10",
+      "total_value_usd": 330000.0,
+      "holdings_count": 8,
+      "holdings": [
+        {
+          "ticker": "NVDA",
+          "name": "NVIDIA CORP",
+          "value_usd": 60000,
+          "weight": 18.2,
+          "shares": 1
+        },
+        {
+          "ticker": "MSFT",
+          "name": "MICROSOFT CORP",
+          "value_usd": 50000,
+          "weight": 15.2,
+          "shares": 1
+        },
+        {
+          "ticker": "GD",
+          "name": "GENERAL DYNAMICS",
+          "value_usd": 45000,
+          "weight": 13.6,
+          "shares": 1
+        },
+        {
+          "ticker": "INTC",
+          "name": "INTEL CORP",
+          "value_usd": 40000,
+          "weight": 12.1,
+          "shares": 1
+        },
+        {
+          "ticker": "AMT",
+          "name": "AMERICAN TOWER CORP",
+          "value_usd": 35000,
+          "weight": 10.6,
+          "shares": 1
+        },
+        {
+          "ticker": "APO",
+          "name": "APOLLO GLOBAL MGMT",
+          "value_usd": 35000,
+          "weight": 10.6,
+          "shares": 1
+        },
+        {
+          "ticker": "MU",
+          "name": "MICRON TECHNOLOGY",
+          "value_usd": 35000,
+          "weight": 10.6,
+          "shares": 1
+        },
+        {
+          "ticker": "GOOGL",
+          "name": "ALPHABET INC",
+          "value_usd": 30000,
+          "weight": 9.1,
+          "shares": 1
+        }
+      ]
+    },
+    {
+      "id": "tom-suozzi",
+      "name": "Thomas Suozzi",
+      "name_zh": "托马斯·索齐",
+      "fund": "US House (NY-03)",
+      "source": "STOCK Act",
+      "cik": "",
+      "style": "congress",
+      "color": "#0D6EFD",
+      "initials": "TS",
+      "tagline": "A级#11，613笔交易(高样本量)，45%胜率，alpha +3.7%。NVDA重仓$8.2M。",
+      "filing_date": "2026-07-25",
+      "period_of_report": "2026-07-15",
+      "total_value_usd": 12000000.0,
+      "holdings_count": 8,
+      "holdings": [
+        {
+          "ticker": "NVDA",
+          "name": "NVIDIA CORP",
+          "value_usd": 8200000,
+          "weight": 68.3,
+          "shares": 1
+        },
+        {
+          "ticker": "AAPL",
+          "name": "APPLE INC",
+          "value_usd": 1200000,
+          "weight": 10.0,
+          "shares": 1
+        },
+        {
+          "ticker": "MSFT",
+          "name": "MICROSOFT CORP",
+          "value_usd": 800000,
+          "weight": 6.7,
+          "shares": 1
+        },
+        {
+          "ticker": "GOOGL",
+          "name": "ALPHABET INC",
+          "value_usd": 600000,
+          "weight": 5.0,
+          "shares": 1
+        },
+        {
+          "ticker": "AMZN",
+          "name": "AMAZON.COM INC",
+          "value_usd": 400000,
+          "weight": 3.3,
+          "shares": 1
+        },
+        {
+          "ticker": "META",
+          "name": "META PLATFORMS",
+          "value_usd": 300000,
+          "weight": 2.5,
+          "shares": 1
+        },
+        {
+          "ticker": "JPM",
+          "name": "JPMORGAN CHASE",
+          "value_usd": 300000,
+          "weight": 2.5,
+          "shares": 1
+        },
+        {
+          "ticker": "V",
+          "name": "VISA INC",
+          "value_usd": 200000,
+          "weight": 1.7,
+          "shares": 1
+        }
+      ]
     }
   ],
   "styles": {
     "value": {
-      "label": "가치투자형",
-      "description": "장기 보유, 내재가치 중심, 안전마진 강조",
+      "label": "价值投资型",
+      "description": "长期持有、内在价值为核心、强调安全边际",
       "color": "#10b981"
     },
     "macro": {
-      "label": "매크로·헤지펀드형",
-      "description": "거시경제 흐름·자산배분 중심, 톱다운 접근",
+      "label": "宏观对冲型",
+      "description": "宏观经济趋势与资产配置为主、自上而下策略",
       "color": "#fb923c"
     },
     "contrarian": {
-      "label": "역발상·공격형",
-      "description": "고확신 역발상, 혁신·테마 집중 베팅",
+      "label": "逆向激进型",
+      "description": "高确信逆向投资、聚焦创新主题集中押注",
       "color": "#ef4444"
+    },
+    "form4": {
+      "label": "名人交易追踪",
+      "description": "通过SEC Form 4追踪企业内部人买卖交易",
+      "color": "#f59e0b"
+    },
+    "congress": {
+      "label": "国会交易追踪",
+      "description": "通过STOCK Act披露追踪国会议员交易",
+      "color": "#0D6EFD"
+    },
+    "hkex": {
+      "label": "港股权益追踪",
+      "description": "通过港交所权益披露追踪大股东持股变动",
+      "color": "#003D7C"
     }
   }
 }

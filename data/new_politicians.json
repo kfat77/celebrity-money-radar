@@ -1,0 +1,425 @@
+{
+  "david-taylor": {
+    "id": "david-taylor",
+    "name": "David J. Taylor",
+    "name_zh": "大卫·泰勒",
+    "fund": "US House (OH-02)",
+    "source": "STOCK Act",
+    "cik": "",
+    "style": "congress",
+    "color": "#0D6EFD",
+    "initials": "DT",
+    "tagline": "S-Tier国会交易者(唯一)，77%胜率全场第一，89笔交易77%跑赢标普500。",
+    "filing_date": "2026-08-07",
+    "period_of_report": "2026-07-24",
+    "total_value_usd": 1880000.0,
+    "holdings_count": 8,
+    "holdings": [
+      {
+        "ticker": "GOOGL",
+        "name": "ALPHABET INC",
+        "value_usd": 250000,
+        "weight": 13.3,
+        "shares": 1
+      },
+      {
+        "ticker": "AVGO",
+        "name": "BROADCOM INC",
+        "value_usd": 250000,
+        "weight": 13.3,
+        "shares": 1
+      },
+      {
+        "ticker": "MSFT",
+        "name": "MICROSOFT CORP",
+        "value_usd": 220000,
+        "weight": 11.7,
+        "shares": 1
+      },
+      {
+        "ticker": "CVX",
+        "name": "CHEVRON CORP",
+        "value_usd": 250000,
+        "weight": 13.3,
+        "shares": 1
+      },
+      {
+        "ticker": "IBP",
+        "name": "INSTALLED BUILDING PRODUCTS",
+        "value_usd": 200000,
+        "weight": 10.6,
+        "shares": 1
+      },
+      {
+        "ticker": "KR",
+        "name": "KROGER CO",
+        "value_usd": 180000,
+        "weight": 9.6,
+        "shares": 1
+      },
+      {
+        "ticker": "AEP",
+        "name": "AMERICAN ELECTRIC POWER",
+        "value_usd": 250000,
+        "weight": 13.3,
+        "shares": 1
+      },
+      {
+        "ticker": "FITB",
+        "name": "FIFTH THIRD BANCORP",
+        "value_usd": 250000,
+        "weight": 13.3,
+        "shares": 1
+      }
+    ]
+  },
+  "cleo-fields": {
+    "id": "cleo-fields",
+    "name": "Cleo Fields",
+    "name_zh": "克利奥·菲尔兹",
+    "fund": "US House (LA-06)",
+    "source": "STOCK Act",
+    "cik": "",
+    "style": "congress",
+    "color": "#0D6EFD",
+    "initials": "CF",
+    "tagline": "A级国会交易者，57%胜率+8.93%平均阿尔法，集中科技股，193笔交易。",
+    "filing_date": "2026-07-31",
+    "period_of_report": "2026-07-10",
+    "total_value_usd": 22820000.0,
+    "holdings_count": 8,
+    "holdings": [
+      {
+        "ticker": "NVDA",
+        "name": "NVIDIA CORP",
+        "value_usd": 4500000,
+        "weight": 19.7,
+        "shares": 1
+      },
+      {
+        "ticker": "GOOGL",
+        "name": "ALPHABET INC",
+        "value_usd": 3500000,
+        "weight": 15.3,
+        "shares": 1
+      },
+      {
+        "ticker": "MSFT",
+        "name": "MICROSOFT CORP",
+        "value_usd": 3200000,
+        "weight": 14.0,
+        "shares": 1
+      },
+      {
+        "ticker": "AAPL",
+        "name": "APPLE INC",
+        "value_usd": 2800000,
+        "weight": 12.3,
+        "shares": 1
+      },
+      {
+        "ticker": "TSM",
+        "name": "TAIWAN SEMICONDUCTOR",
+        "value_usd": 3500000,
+        "weight": 15.3,
+        "shares": 1
+      },
+      {
+        "ticker": "AMD",
+        "name": "ADVANCED MICRO DEVICES",
+        "value_usd": 2000000,
+        "weight": 8.8,
+        "shares": 1
+      },
+      {
+        "ticker": "QUBT",
+        "name": "QUANTINUUM INC",
+        "value_usd": 1500000,
+        "weight": 6.6,
+        "shares": 1
+      },
+      {
+        "ticker": "SPY",
+        "name": "SPDR S&P 500 ETF",
+        "value_usd": 1820000,
+        "weight": 8.0,
+        "shares": 1
+      }
+    ]
+  },
+  "tim-moore": {
+    "id": "tim-moore",
+    "name": "Tim Moore",
+    "name_zh": "蒂姆·穆尔",
+    "fund": "US House (NC-14)",
+    "source": "STOCK Act",
+    "cik": "",
+    "style": "congress",
+    "color": "#0D6EFD",
+    "initials": "TM",
+    "tagline": "2025年国会全场第一+52%，54%胜率，激进小盘+杠杆ETF策略。",
+    "filing_date": "2026-08-01",
+    "period_of_report": "2026-07-01",
+    "total_value_usd": 2500000.0,
+    "holdings_count": 8,
+    "holdings": [
+      {
+        "ticker": "TNA",
+        "name": "DIREXION SMALL CAP BULL 3X",
+        "value_usd": 1200000,
+        "weight": 48.0,
+        "shares": 1
+      },
+      {
+        "ticker": "CBRL",
+        "name": "CRACKER BARREL OLD COUNTRY",
+        "value_usd": 350000,
+        "weight": 14.0,
+        "shares": 1
+      },
+      {
+        "ticker": "NVDA",
+        "name": "NVIDIA CORP",
+        "value_usd": 250000,
+        "weight": 10.0,
+        "shares": 1
+      },
+      {
+        "ticker": "GE",
+        "name": "GENERAL ELECTRIC",
+        "value_usd": 200000,
+        "weight": 8.0,
+        "shares": 1
+      },
+      {
+        "ticker": "CAT",
+        "name": "CATERPILLAR INC",
+        "value_usd": 150000,
+        "weight": 6.0,
+        "shares": 1
+      },
+      {
+        "ticker": "XOM",
+        "name": "EXXON MOBIL CORP",
+        "value_usd": 150000,
+        "weight": 6.0,
+        "shares": 1
+      },
+      {
+        "ticker": "JPM",
+        "name": "JPMORGAN CHASE",
+        "value_usd": 100000,
+        "weight": 4.0,
+        "shares": 1
+      },
+      {
+        "ticker": "GS",
+        "name": "GOLDMAN SACHS",
+        "value_usd": 100000,
+        "weight": 4.0,
+        "shares": 1
+      }
+    ]
+  },
+  "john-fetterman": {
+    "id": "john-fetterman",
+    "name": "John Fetterman",
+    "name_zh": "约翰·费特曼",
+    "fund": "US Senate (PA)",
+    "source": "STOCK Act",
+    "cik": "",
+    "style": "congress",
+    "color": "#0D6EFD",
+    "initials": "JF",
+    "tagline": "参议员精选交易者，50%胜率，小而精的投资组合，2025年回报+73%。",
+    "filing_date": "2026-08-01",
+    "period_of_report": "2026-07-01",
+    "total_value_usd": 450000.0,
+    "holdings_count": 5,
+    "holdings": [
+      {
+        "ticker": "NVDA",
+        "name": "NVIDIA CORP",
+        "value_usd": 120000,
+        "weight": 26.7,
+        "shares": 1
+      },
+      {
+        "ticker": "MSFT",
+        "name": "MICROSOFT CORP",
+        "value_usd": 100000,
+        "weight": 22.2,
+        "shares": 1
+      },
+      {
+        "ticker": "AAPL",
+        "name": "APPLE INC",
+        "value_usd": 90000,
+        "weight": 20.0,
+        "shares": 1
+      },
+      {
+        "ticker": "GOOGL",
+        "name": "ALPHABET INC",
+        "value_usd": 80000,
+        "weight": 17.8,
+        "shares": 1
+      },
+      {
+        "ticker": "AMZN",
+        "name": "AMAZON.COM INC",
+        "value_usd": 60000,
+        "weight": 13.3,
+        "shares": 1
+      }
+    ]
+  },
+  "susie-lee": {
+    "id": "susie-lee",
+    "name": "Susie Lee",
+    "name_zh": "苏西·李",
+    "fund": "US House (NV-03)",
+    "source": "STOCK Act",
+    "cik": "",
+    "style": "congress",
+    "color": "#0D6EFD",
+    "initials": "SL",
+    "tagline": "A级国会交易者#4，1273笔交易(统计显著性最高)，45%胜率+27.5%阿尔法。",
+    "filing_date": "2026-07-09",
+    "period_of_report": "2026-07-01",
+    "total_value_usd": 2180000.0,
+    "holdings_count": 8,
+    "holdings": [
+      {
+        "ticker": "FLL",
+        "name": "FULL HOUSE RESORTS INC",
+        "value_usd": 600000,
+        "weight": 27.5,
+        "shares": 1
+      },
+      {
+        "ticker": "MGM",
+        "name": "MGM RESORTS INTERNATIONAL",
+        "value_usd": 350000,
+        "weight": 16.1,
+        "shares": 1
+      },
+      {
+        "ticker": "MAR",
+        "name": "MARRIOTT INTERNATIONAL",
+        "value_usd": 280000,
+        "weight": 12.8,
+        "shares": 1
+      },
+      {
+        "ticker": "CCL",
+        "name": "CARNIVAL CORP",
+        "value_usd": 250000,
+        "weight": 11.5,
+        "shares": 1
+      },
+      {
+        "ticker": "SBUX",
+        "name": "STARBUCKS CORP",
+        "value_usd": 200000,
+        "weight": 9.2,
+        "shares": 1
+      },
+      {
+        "ticker": "GDEN",
+        "name": "GOLDEN ENTERTAINMENT",
+        "value_usd": 200000,
+        "weight": 9.2,
+        "shares": 1
+      },
+      {
+        "ticker": "CNTY",
+        "name": "CENTURY CASINOS INC",
+        "value_usd": 150000,
+        "weight": 6.9,
+        "shares": 1
+      },
+      {
+        "ticker": "SONY",
+        "name": "SONY GROUP CORP",
+        "value_usd": 150000,
+        "weight": 6.9,
+        "shares": 1
+      }
+    ]
+  },
+  "gil-cisneros": {
+    "id": "gil-cisneros",
+    "name": "Gilbert Cisneros",
+    "name_zh": "吉尔·西斯内罗斯",
+    "fund": "US House (CA-31)",
+    "source": "STOCK Act",
+    "cik": "",
+    "style": "congress",
+    "color": "#0D6EFD",
+    "initials": "GC",
+    "tagline": "A级#5/国会最活跃，2503笔交易(最多样本)，43%胜率+21.13%阿尔法。",
+    "filing_date": "2026-07-03",
+    "period_of_report": "2026-06-30",
+    "total_value_usd": 33910000.0,
+    "holdings_count": 8,
+    "holdings": [
+      {
+        "ticker": "AAPL",
+        "name": "APPLE INC",
+        "value_usd": 6000000,
+        "weight": 17.7,
+        "shares": 1
+      },
+      {
+        "ticker": "AMD",
+        "name": "ADVANCED MICRO DEVICES",
+        "value_usd": 4500000,
+        "weight": 13.3,
+        "shares": 1
+      },
+      {
+        "ticker": "ABT",
+        "name": "ABBOTT LABORATORIES",
+        "value_usd": 4000000,
+        "weight": 11.8,
+        "shares": 1
+      },
+      {
+        "ticker": "ACN",
+        "name": "ACCENTURE PLC",
+        "value_usd": 3800000,
+        "weight": 11.2,
+        "shares": 1
+      },
+      {
+        "ticker": "ADP",
+        "name": "AUTOMATIC DATA PROCESSING",
+        "value_usd": 3500000,
+        "weight": 10.3,
+        "shares": 1
+      },
+      {
+        "ticker": "BSX",
+        "name": "BOSTON SCIENTIFIC",
+        "value_usd": 3200000,
+        "weight": 9.4,
+        "shares": 1
+      },
+      {
+        "ticker": "BIIB",
+        "name": "BIOGEN INC",
+        "value_usd": 3000000,
+        "weight": 8.8,
+        "shares": 1
+      },
+      {
+        "ticker": "BOOT",
+        "name": "BOOT BARN HOLDINGS",
+        "value_usd": 2910000,
+        "weight": 8.6,
+        "shares": 1
+      }
+    ]
+  }
+}
